@@ -4,6 +4,27 @@ var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var numbers ="0123456789";
 var symbols = "!@#$%^&*(){}[]/><-_+=|`~";
 
+// Generate Password Function
+function generatePassword() {
+  var allowed = '';
+
+  if (document.getElementById("uppercase").checked) {
+    allowed += uppercase;
+  };
+
+  if (document.getElementById("lowercase").checked) {
+    allowed += lowercase;
+  };
+
+  if (document.getElementById("number").checked) {
+    allowed += numbers;
+  };
+
+  if (document.getElementById("special").checked) {
+    allowed += symbols;
+  };
+}
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
