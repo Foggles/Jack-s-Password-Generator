@@ -1,11 +1,7 @@
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
-let slider = document.getElementById("PasswordLength");
 let output = document.getElementById("sliderDisplay");
-let lowerCheck = document.getElementById("lowercase");
-let upperCheck = document.getElementById("uppercase");
-let numberCheck = document.getElementById("number");
-let specialCheck = document.getElementById("special");
+let slider = document.getElementById("PasswordLength");
 
 let lowerOutput;
 
@@ -15,6 +11,12 @@ slider.oninput = function () {
   output.innerHTML = this.value;
 }
 
+// DOM Elements
+const lowerCheck = document.getElementById("lowercase");
+const upperCheck = document.getElementById("uppercase");
+const numberCheck = document.getElementById("number");
+const specialCheck = document.getElementById("special");
+
 
 const randomFunc = {
   lower: getRandomLower,
@@ -22,6 +24,10 @@ const randomFunc = {
   number: getRandomNumber,
   symbol: getRandomSymbol
 };
+
+generateBtn.addEventListener("click", () => {
+  
+});
 
 // Functions to grab random lowercase upper
 function getRandomLower() {
