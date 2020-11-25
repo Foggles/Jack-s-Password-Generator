@@ -28,8 +28,13 @@ const randomFunc = {
 generateBtn.addEventListener("click", () => {
   const length = slider.value;
   passwordLength = parseFloat(slider.value);
+  const hasLower = lowerCheck.checked;
+  const hasUpper = upperCheck.checked;
+  const hasNumber = numberCheck.checked;
+  const hasSymbols = specialCheck.checked;
+  
 
-  console.log(passwordLength);
+  console.log(hasLower, hasUpper, hasNumber, hasSymbols);
 });
 
 // Functions to grab random lowercase upper
