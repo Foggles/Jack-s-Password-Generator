@@ -11,9 +11,17 @@ let lowerOutput;
 
 output.innerHTML = slider.value; // Display the default slider value
 
-slider.oninput = function() {
+slider.oninput = function () {
   output.innerHTML = this.value;
 }
+
+
+const randomFunc = {
+  lower: getRandomLower,
+  upper: getRandomUpper,
+  number: getRandomNumber,
+  symbol: getRandomSymbol
+};
 
 // Functions to grab random lowercase upper
 function getRandomLower() {
@@ -31,8 +39,8 @@ function getRandomNumber() {
 function getRandomSymbol() {
   const symbols = "!@#$%^&*(){}[]=<>,.'";
   return symbols[Math.floor(Math.random() * symbols.length)];
+
 };
-console.log(getRandomSymbol());
 
 // Write password to the #password input
 
