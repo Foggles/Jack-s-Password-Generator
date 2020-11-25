@@ -2,6 +2,12 @@
 let generateBtn = document.querySelector("#generate");
 let slider = document.getElementById("PasswordLength");
 let output = document.getElementById("sliderDisplay");
+let lowerCheck = document.getElementById("lowercase");
+let upperCheck = document.getElementById("uppercase");
+let numberCheck = document.getElementById("number");
+let specialCheck = document.getElementById("special");
+
+let lowerOutput;
 
 output.innerHTML = slider.value; // Display the default slider value
 
@@ -9,15 +15,27 @@ slider.oninput = function() {
   output.innerHTML = this.value;
 }
 
-// Arrays for lowercase, uppercase, numbers & special characters
-let lowerArr = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let upperArr = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-let numArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-let specArr = [" ", "!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~"];
+// Functions to grab random lowercase upper
+function getRandomLower() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
+};
 
+function getRandomUpper() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+};
 
+function getRandomNumber() {
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+};
+
+function getRandomSymbol() {
+  const symbols = "!@#$%^&*(){}[]=<>,.'";
+  return symbols[Math.floor(Math.random() * symbols.length)];
+};
+console.log(getRandomSymbol());
 
 // Write password to the #password input
+
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
