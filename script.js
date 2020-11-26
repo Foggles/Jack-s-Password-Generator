@@ -1,13 +1,26 @@
 // Assign variables for all four options
-var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var lowercase = "abcdefghijklmnopqrstuvwxyz";
-var numbers ="0123456789";
-var symbols = "!@#$%^&*(){}[]/><-_+=|`~";
+let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+let lowercase = "abcdefghijklmnopqrstuvwxyz";
+let numbers ="0123456789";
+let symbols = "!@#$%^&*(){}[]/><-_+=|`~";
+let stringLength = document.getElementById("PasswordLength");
+
+let slider = document.getElementById("PasswordLength");
+let output = document.getElementById("sliderDisplay");
+
+output.innerHTML = slider.value; // Display the default slider value
+
+slider.oninput = function() {
+  output.innerHTML = this.value;
+}
 
 // Generate Password Function
 function generatePassword() {
-  var allowed = '';
+  let length = parseFloat(stringLength.value);
+  let allowed = "";
+  let password = "";
 
+  // Checking for which checkboxes are checked
   if (document.getElementById("uppercase").checked) {
     allowed += uppercase;
   };
@@ -23,6 +36,16 @@ function generatePassword() {
   if (document.getElementById("special").checked) {
     allowed += symbols;
   };
+
+  // Building the random password based on the length determined by the user
+  for(var i = 0; i < length; i++) {
+    let random = Math.floor(Math.random() * allowed.length);
+    password += allowed[random];
+  }
+
+  //Return the randomised password
+  return password
+  
 }
 
 // Assignment Code
@@ -32,11 +55,11 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  var passwordOutput = generatePassword();
   var passwordText = document.querySelector("#password");
 
-  passwordText.value = password;
-
+  passwordText.value = passwordOutput;
+;
 }
 
 // Add event listener to generate button
