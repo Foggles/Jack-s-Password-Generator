@@ -3,12 +3,16 @@ let uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let lowercase = "abcdefghijklmnopqrstuvwxyz";
 let numbers ="0123456789";
 let symbols = "!@#$%^&*(){}[]/><-_+=|`~";
+
+// Assign variable for length of password
 let stringLength = document.getElementById("PasswordLength");
 
+// Variables for dynamic slider
 let slider = document.getElementById("PasswordLength");
 let output = document.getElementById("sliderDisplay");
 
-output.innerHTML = slider.value; // Display the default slider value
+// Functionality for dynamic slider
+output.innerHTML = slider.value;
 
 slider.oninput = function() {
   output.innerHTML = this.value;
